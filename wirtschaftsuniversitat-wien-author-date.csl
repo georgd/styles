@@ -15,7 +15,7 @@
     <category citation-format="author-date"/>
     <category field="social_science"/>
     <summary>APA 6th ed. based citation style used at WU Vienna by the Institute for Managing Sustainability, the Master Management programme and the PMBA Sozialmanagement programme.</summary>
-    <updated>2017-11-29T21:53:19+00:00</updated>
+    <updated>2024-03-27T16:35:27+01:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="en">
@@ -26,8 +26,7 @@
       </term>
       <term name="translator" form="short">trans.</term>
       <term name="anonymous">No author</term>
-      <!-- This should be term name="of" -->
-      <term name="ad">of</term>
+      <term name="from">of</term>
       <term name="presented at">Paper presented at the</term>
     </terms>
   </locale>
@@ -39,7 +38,7 @@
       </term>
       <term name="translator" form="short">trans.</term>
       <term name="accessed">abgerufen am</term>
-      <term name="ad">vom</term>
+      <term name="from">vom</term>
       <term name="et-al">et al.</term>
       <term name="presented at">Paper präsentiert bei der</term>
       <term name="anonymous">Anonym</term>
@@ -526,8 +525,7 @@
           <choose>
             <if type="article-newspaper">
               <group prefix=" " delimiter=" ">
-                <!-- This should be text term="of" -->
-                <text term="ad"/>
+                <text term="from"/>
                 <date variable="issued" form="text"/>
               </group>
             </if>
