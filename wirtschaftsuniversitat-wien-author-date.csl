@@ -15,7 +15,7 @@
     <category citation-format="author-date"/>
     <category field="social_science"/>
     <summary>APA 6th ed. based citation style used at WU Vienna by the Institute for Managing Sustainability, the Master Management programme and the PMBA Sozialmanagement programme.</summary>
-    <updated>2024-03-27T17:01:31+01:00</updated>
+    <updated>2024-04-03T14:10:59+02:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="en">
@@ -299,22 +299,16 @@
           <if variable="issued">
             <group prefix=" (" suffix=")" delimiter=", ">
               <group>
-                <date variable="issued">
-                  <date-part name="year"/>
-                </date>
-                <text variable="year-suffix"/>
                 <choose>
-                  <if type="speech" match="any">
+                  <if type="article article-journal article-newspaper book chapter entry entry-dictionary entry-encyclopedia dataset figure graphic manuscript map musical_score paper-conference patent report review review-book thesis">
                     <date variable="issued">
-                      <date-part prefix=", " name="month"/>
+                      <date-part name="year"/>
                     </date>
                   </if>
-                  <else-if type="article-journal bill book chapter graphic legal_case legislation motion_picture paper-conference report song dataset article-newspaper" match="none">
-                    <date variable="issued">
-                      <date-part prefix=", " name="month"/>
-                      <date-part prefix=" " name="day"/>
-                    </date>
-                  </else-if>
+                  <else>
+                    <date variable="issued" form="text"/>
+                    <text variable="year-suffix"/>
+                  </else>
                 </choose>
               </group>
               <choose>
@@ -373,7 +367,11 @@
   </macro>
   <macro name="issued-year">
     <choose>
-      <if variable="issued">
+      <if type="software" variable="issued" match="all">
+        <date variable="issued" form="text"/>
+        <text variable="year-suffix"/>
+      </if>
+      <else-if variable="issued">
         <group delimiter="/">
           <date variable="original-date" form="text"/>
           <group>
@@ -383,7 +381,7 @@
             <text variable="year-suffix"/>
           </group>
         </group>
-      </if>
+      </else-if>
       <else-if variable="status">
         <text variable="status"/>
         <text variable="year-suffix" prefix="-"/>
